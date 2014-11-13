@@ -1,3 +1,3 @@
-# Powerline bash
+# Powerline-bash
 
 ![Screenshot](./screenshot.png)
