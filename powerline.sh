@@ -10,6 +10,9 @@ readonly COLOR_BG_SUCCESS="$(tput setab 5)"
 readonly COLOR_BG="$(tput setab 7)"
 readonly COLOR_RESET="$(tput sgr0)"
 
+readonly CHAR_E0B0=$'\xEE\x82\xB0'
+readonly CHAR_E0B1=$'\xEE\x82\xB1'
+
 __join() {
     local sep="$1"
     shift
@@ -39,10 +42,10 @@ __ps1() {
     PS1="\[\e]0;\w\a\]"
     PS1+="\n"
     PS1+="\[$COLOR_FG$COLOR_BG\]"
-    PS1+=" $(__join " \[$COLOR_FG_GRAY\]"$'\uE0B1'"\[$COLOR_FG\] " "${__pwd[@]}") "
-    PS1+="\[$COLOR_FG_WHITE$state_bg\]"$'\uE0B0'"\[$COLOR_FG\]"
+    PS1+=" $(__join " \[$COLOR_FG_GRAY\]$CHAR_E0B1\[$COLOR_FG\] " "${__pwd[@]}") "
+    PS1+="\[$COLOR_FG_WHITE$state_bg\]$CHAR_E0B0\[$COLOR_FG\]"
     PS1+=" $ "
-    PS1+="\[$COLOR_RESET$state_fg\]"$'\uE0B0'
+    PS1+="\[$COLOR_RESET$state_fg\]$CHAR_E0B0"
     PS1+="\[$COLOR_RESET\] "
     return $ret
 }
