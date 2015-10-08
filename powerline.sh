@@ -43,7 +43,7 @@ __ps1() {
     PS1+="\n"
     PS1+="\[$COLOR_FG$COLOR_BG\]"
     PS1+=" $(__join " \[$COLOR_FG_GRAY\]$CHAR_E0B1\[$COLOR_FG\] " "${__pwd[@]}") "
-    PS1+="\[$COLOR_FG_WHITE$state_bg\]$CHAR_E0B0\[$COLOR_FG\]"
+    PS1+="\[$state_bg\]$CHAR_E0B0\[$COLOR_FG_WHITE\]"
     PS1+=" $ "
     PS1+="\[$COLOR_RESET$state_fg\]$CHAR_E0B0"
     PS1+="\[$COLOR_RESET\] "
